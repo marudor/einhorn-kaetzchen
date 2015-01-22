@@ -31,7 +31,7 @@ client.get('statuses/user_timeline', options, function(error, params){
     last = tweet.id;
     if (tweet.entities.media.length > 0) {
       _.each(tweet.entities.media, m => {
-        new download().get(m.media_url_https).rename(moment(tweet.created_at).format('DD.MM.YYYY HHmm')).dest('~/einhorn').run();
+        new download().get(m.media_url_https).rename(moment(tweet.created_at).format('DD.MM.YYYY HHmm')).dest('~/einhorn/episodes').run();
       });
     }
   });
