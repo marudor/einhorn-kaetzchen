@@ -29,7 +29,7 @@ if (last) {
 function processTweet(tweet) {
   if (tweet.entities.media.length > 0) {
     _.each(tweet.entities.media, m => {
-      new download().get(m.media_url_https+':large').rename(moment(tweet.created_at).format('DD.MM.YYYY HHmm')).dest('episodes').run();
+      new download().get(m.media_url_https+':large').rename(moment(tweet.created_at).format('DD.MM.YYYY HHmm')+'.png').dest('episodes').run();
     });
   }
 }
