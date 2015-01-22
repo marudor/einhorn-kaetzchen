@@ -44,7 +44,7 @@ client.get('statuses/user_timeline', options, (error, params) => {
 });
 
 var startStream = () => {
-  client.stream('statuses/filter', {track: 'javascript'}, stream => {
+  client.stream('statuses/filter', {follow: 2978671564}, stream => {
 
     stream.on('data', tweet => {
       processTweet(tweet);
