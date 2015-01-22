@@ -61,3 +61,5 @@ var startStream = () => {
     });
   });
 };
+
+startStream();
