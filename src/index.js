@@ -67,6 +67,10 @@ if (!gotOld) {
 }
 
 client.get('statuses/user_timeline', options, (error, params) => {
+  if (error) {
+    console.log(error);
+    return;
+  }
   _.each(params.reverse(), tweet => {
     last = tweet.id;
     processTweet(tweet);
