@@ -23,6 +23,7 @@ try {
 
 var options = {
   user_id: 2978671564,
+  trim_user: true,
   include_rts: false,
   exclude_replies: true
 };
@@ -35,7 +36,15 @@ if (last) {
 function processTweet(tweet) {
   if (tweet.entities.media.length > 0) {
     _.each(tweet.entities.media, m => {
-      new download().get(m.media_url_https+':large').rename(moment(tweet.created_at).format('DD.MM.YYYY HHmm')+'.png').dest('episodes').run();
+      var created = moment(tweet.created_at);
+      var fileName = created.format('DD.MM.YYYY HHmm')+'.png';
+      new download().get(m.media_url_https+':large').rename(fileName).dest('episodes/pictures').run();
+      var tw = {
+        text: tweet.text,
+        file: fileName,
+        rawTweet: tweet
+      };
+      fs.writeFileSync('episodes/'+created.format('DD.MM.YYYY HHmm')+'.json', tw);
     });
   }
 }
