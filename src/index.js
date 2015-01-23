@@ -44,7 +44,7 @@ function processTweet(tweet) {
         file: fileName,
         rawTweet: tweet
       };
-      fs.writeFileSync('episodes/'+created.format('DD.MM.YYYY HHmm')+'.json', tw);
+      fs.writeFileSync('episodes/'+created.format('DD.MM.YYYY HHmm')+'.json', JSON.stringify(tw));
     });
   }
 }
