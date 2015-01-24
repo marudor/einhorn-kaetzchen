@@ -72,7 +72,7 @@ var findOld = function(max_id = 556942909426389000) {
 
 if (!gotOld) {
   findOld();
-  fs.writeFileSync(__dirname+'/max.json', max);
+  fs.writeFileSync(__dirname+'/gotOld.json', max);
 }
 
 client.get('statuses/user_timeline', options, (error, params) => {
@@ -110,4 +110,4 @@ var startStream = () => {
   });
 };
 
-startStream();
+//startStream();
