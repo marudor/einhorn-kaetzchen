@@ -92,7 +92,7 @@ var startStream = () => {
   client.stream('statuses/filter', {follow: 2978671564}, stream => {
 
     stream.on('data', tweet => {
-      if (tweet.retweeted) {
+      if (tweet.text.indexOf('RT') === 0) {
         return;
       }
       processTweet(tweet);
