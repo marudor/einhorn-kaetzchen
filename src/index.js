@@ -110,4 +110,4 @@ var startStream = () => {
   });
 };
 
-//startStream();
+startStream();
